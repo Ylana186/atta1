@@ -1,156 +1,179 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цитаты и Афоризмы</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Цитаты и Афоризмы</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #f4f4f4;
+ color: #333;
+ }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-        }
+ header {
+ background-color: #333;
+ color: #fff;
+ padding: 1em 0;
+ text-align: center;
+ }
 
-        header a {
-            color: #fff;
-            text-decoration: none;
-            margin-top: 10px;
-            display: block;
-        }
+ main {
+ padding: 1em;
+ }
 
-        main {
-            padding: 1em;
-        }
+ .quote {
+ border: 1px solid #ccc;
+ padding: 1em;
+ margin-bottom: 0.5em;
+ background-color: #fff;
+ }
 
-        section {
-            margin-bottom: 2em;
-        }
+ .author {
+ font-style: italic;
+ text-align: right;
+ color: #777;
+ }
 
-        #categories ul,
-        #authors ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-
-        #categories li,
-        #authors li {
-            display: inline;
-            margin: 0 1em;
-        }
-
-        .quote {
-            border: 1px solid #ccc;
-            padding: 1em;
-            margin-bottom: 0.5em;
-            background-color: #fff;
-        }
-
-        .author {
-            font-style: italic;
-            text-align: right;
-            color: #777;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+ footer {
+ background-color: #333;
+ color: #fff;
+ text-align: center;
+ padding: 1em 0;
+ position: fixed;
+ bottom: 0;
+ width: 100%;
+ }
+ </style>
 </head>
 <body>
-    <header>
-        <h1>Цитаты и Афоризмы</h1>
-        <a href="index.html">На главную</a>
-    </header>
+ <header>
+ <h1>Цитаты и Афоризмы</h1>
+ <a href="index.html">На главную</a>
+ </header>
 
-    <main id="quotes-container">
-        
-    </main>
+ <main>
+ <section class="quote">
+ <p>"Мудрость - это знание того, как мало мы знаем."</p>
+ <p class="author">- Сократ</p>
+ </section>
 
-    <footer>
-        <p>&copy; 2025 Сайт цитат и афоризмов</p>
-    </footer>
+ <section class="quote">
+ <p>"Единственная настоящая мудрость - это знать, что ты ничего не знаешь."</p>
+ <p class="author">- Сократ</p>
+ </section>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const category = urlParams.get('category');
-        const author = urlParams.get('author');
+ <section class="quote">
+ <p>"Познай самого себя."</p>
+ <p class="author">- Сократ</p>
+ </section>
 
-        let quotesToDisplay = [];
+ <section class="quote">
+ <p>"Стремись не к успеху, а к ценностям, которые он дает."</p>
+ <p class="author">- Альберт Эйнштейн</p>
+ </section>
+    <section class="quote">
+ <p>"Любовь - это теорема, которую нужно доказывать каждый день."</p>
+ <p class="author">- Альберт Эйнштейн</p>
+ </section>
+ <section class="quote">
+ <p>"Жизнь - это то, что с тобой происходит, пока ты строишь планы."</p>
+ <p class="author">- Джон Леннон</p>
+ </section>
+    <section class="quote">
+ <p>"Только дурак знает всё."</p>
+ <p class="author">- Аркадий Давидович</p>
+ </section>
 
-       
-        const quotes = [
-            { text: "Мудрость - это знание того, как мало мы знаем.", author: "Сократ", category: "wisdom" },
-            { text: "Единственная настоящая мудрость - это знать, что ты ничего не знаешь.", author: "Сократ", category: "wisdom" },
-            { text: "Познай самого себя.", author: "Сократ", category: "wisdom" },
-            { text: "Стремись не к успеху, а к ценностям, которые он дает.", author: "Альберт Эйнштейн", category: "life" },
-            { text: "Любовь - это теорема, которую нужно доказывать каждый день.", author: "Альберт Эйнштейн", category: "love" },
-            { text: "Жизнь - это то, что с тобой происходит, пока ты строишь планы.", author: "Джон Леннон", category: "life" },
+ <section class="quote">
+ <p>"В каждой шутке есть доля шутки."</p>
+ <p class="author">- Аркадий Давидович</p>
+ </section>
+      <section class="quote">
+ <p>"Пессимист видит трудности в каждой возможности; оптимист видит возможности в каждой трудности."</p>
+ <p class="author">- Уинстон Черчилль</p>
+ </section>
+         <section class="quote">
+ <p>"Успех - это способность идти от неудачи к неудаче, не теряя энтузиазма."</p>
+ <p class="author">- Уинстон Черчилль</p>
+ </section>
+ <section class="quote">
+ <p>"Счастье - это когда то, что вы думаете, что вы говорите и что вы делаете, находятся в гармонии."</p>
+ <p class="author">- Махатма Ганди</p>
+ </section>
 
-           
-            { text: "Только дурак знает всё.", author: "Аркадий Давидович", category: "wisdom" },
-            { text: "В каждой шутке есть доля шутки.", author: "Аркадий Давидович", category: "humor" },
-            { text: "Пессимист видит трудности в каждой возможности; оптимист видит возможности в каждой трудности.", author: "Уинстон Черчилль", category: "attitude" },
-            { text: "Успех - это способность идти от неудачи к неудаче, не теряя энтузиазма.", author: "Уинстон Черчилль", category: "success" },
-            { text: "Счастье - это когда то, что вы думаете, что вы говорите и что вы делаете, находятся в гармонии.", author: "Махатма Ганди", category: "happiness" },
-            { text: "Будьте переменой, которую хотите видеть в мире.", author: "Махатма Ганди", category: "change" },
-            { text: "Две вещи бесконечны: Вселенная и человеческая глупость. И я не уверен насчет Вселенной.", author: "Альберт Эйнштейн", category: "humor" },
-            { text: "Образование — это то, что остается после того, когда забываешь всё, чему учили в школе.", author: "Альберт Эйнштейн", category: "education" },
-            { text: "В споре рождается истина.", author: "Сократ", category: "wisdom" },
-            { text: "Я мыслю, следовательно, существую.", author: "Рене Декарт", category: "philosophy" },
-            { text: "Знание - сила.", author: "Фрэнсис Бэкон", category: "knowledge" },
-            { text: "Цель оправдывает средства.", author: "Никколо Макиавелли", category: "ethics" },
-            { text: "Всё проходит. И это пройдет.", author: "Соломон", category: "acceptance" },
-            { text: "Не бойтесь совершенства. Вам его не достичь.", author: "Сальвадор Дали", category: "art" },
-            { text: "Время - деньги.", author: "Бенджамин Франклин", category: "time" },
-            { text: "Лучше жалеть о том, что сделал, чем о том, что не сделал.", author: "Джованни Боккаччо", category: "regret" },
-            { text: "Кто хочет сдвинуть мир, пусть сначала сдвинет себя.", author: "Сократ", category: "self-improvement" },
-            { text: "Свобода — это ответственность. Вот почему все ее так боятся.", author: "Бернард Шоу", category: "freedom" },
-            { text: "Творите добро. Это единственный способ быть счастливым.", author: "Лев Толстой", category: "happiness" },
-            { text: "Не позволяйте никому говорить вам, что вы чего-то не можете.", author: "Неизвестный", category: "inspiration" }
-           
-        ];
+ <section class="quote">
+ <p>"Будьте переменой, которую хотите видеть в мире."</p>
+ <p class="author">- Махатма Ганди</p>
+ </section>
+        <section class="quote">
+ <p>"Две вещи бесконечны: Вселенная и человеческая глупость. И я не уверен насчет Вселенной."</p>
+ <p class="author">- Альберт Эйнштейн</p>
+ </section>
 
-        if (category) {
-            quotesToDisplay = quotes.filter(quote => quote.category === category);
-            document.title = "Цитаты о " + category; // Изменяем заголовок страницы
-        } else if (author) {
-            quotesToDisplay = quotes.filter(quote => quote.author === author);
-            document.title = "Цитаты " + author;  // Изменяем заголовок страницы
-        } else {
-            quotesToDisplay = quotes; // Показать все цитаты, если нет параметров
-        }
+ <section class="quote">
+ <p>"Образование — это то, что остается после того, когда забываешь всё, чему учили в школе."</p>
+ <p class="author">- Альберт Эйнштейн</p>
+ </section>
+ <section class="quote">
+ <p>"В споре рождается истина."</p>
+ <p class="author">- Сократ</p>
+ </section>
+        <section class="quote">
+ <p>"Я мыслю, следовательно, существую."</p>
+ <p class="author">- Рене Декарт</p>
+ </section>
 
-        const quotesContainer = document.getElementById("quotes-container");
-        if (quotesToDisplay.length > 0) {
-            quotesToDisplay.forEach(quote => {
-                const quoteDiv = document.createElement("div");
-                quoteDiv.classList.add("quote");
-                quoteDiv.innerHTML = `
-                    <p>"${quote.text}"</p>
-                    <p class="author">- ${quote.author}</p>
-                `;
-                quotesContainer.appendChild(quoteDiv);
-            });
-        } else {
-            quotesContainer.innerHTML = "<p>Цитат не найдено.</p>";
-        }
-    </script>
+ <section class="quote">
+ <p>"Знание - сила."</p>
+ <p class="author">- Фрэнсис Бэкон</p>
+ </section>
+ <section class="quote">
+ <p>"Цель оправдывает средства."</p>
+ <p class="author">- Никколо Макиавелли</p>
+ </section>
+        <section class="quote">
+ <p>"Всё проходит. И это пройдет."</p>
+ <p class="author">- Соломон</p>
+ </section>
+
+ <section class="quote">
+ <p>"Не бойтесь совершенства. Вам его не достичь."</p>
+ <p class="author">- Сальвадор Дали</p>
+ </section>
+ <section class="quote">
+ <p>"Время - деньги."</p>
+ <p class="author">- Бенджамин Франклин</p>
+ </section>
+        <section class="quote">
+ <p>"Лучше жалеть о том, что сделал, чем о том, что не сделал."</p>
+ <p class="author">- Джованни Боккаччо</p>
+ </section>
+
+ <section class="quote">
+ <p>"Кто хочет сдвинуть мир, пусть сначала сдвинет себя."</p>
+ <p class="author">- Сократ</p>
+ </section>
+ <section class="quote">
+ <p>"Свобода — это ответственность. Вот почему все ее так боятся."</p>
+ <p class="author">- Бернард Шоу</p>
+ </section>
+        <section class="quote">
+ <p>"Творите добро. Это единственный способ быть счастливым."</p>
+ <p class="author">- Лев Толстой</p>
+ </section>
+
+ <section class="quote">
+ <p>"Не позволяйте никому говорить вам, что вы чего-то не можете."</p>
+ <p class="author">- Неизвестный</p>
+ </section>
+
+ </main>
+
+ <footer>
+ <p>&copy; 2025 Сайт цитат и афоризмов</p>
+ </footer>
 </body>
 </html>
