@@ -199,8 +199,6 @@
             <div class="col-12">
                 <button class="btn btn-primary" type="submit">Отправить комментарий</button>
                 <div id="successMessage" class="mt-3" style="display: none;">
-                    formMessage.className = "alert alert-success mt-3";
-                    formMessage.textContent = `Здравствуйте, ${name}! Спасибо за Ваш комментарий.;
             </div>
         </form>
     </div>
@@ -223,10 +221,14 @@
                 return;
             }
 
-             document.getElementById('successMessage').style.display = 'block';
-              document.getElementById("commentForm").reset();
-         });
-    </script>
+            var successMessageDiv = document.getElementById('successMessage');
+        successMessageDiv.textContent = "Спасибо за ваш комментарий, " + name + "!";
+        successMessageDiv.style.display = 'block';
+
+
+        document.getElementById("commentForm").reset();
+    });
+</script>
 
 </body>
 </html>
