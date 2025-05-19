@@ -225,13 +225,14 @@
                 resultDiv.innerHTML = `
                     <div class="alert alert-success mt-3">
                         Спасибо, ${form.name.value}!<br>
-                        
+                      Ваш комментарий: ${form.comment.value}<br>
+                        (Пока не храним ваши данные, но это вопрос времени)
                     </div>
                 `;
                 form.reset();
                 form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
             }
-               });
+        });
 </script>
 
 </body>
