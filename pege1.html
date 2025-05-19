@@ -165,6 +165,7 @@
     </main>
 
 
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -206,7 +207,7 @@
         crossorigin="anonymous"></script>
 <script>
     document.getElementById("commentForm").addEventListener("submit", function(event) {
-        
+        event.preventDefault(); 
 
         const form = this;
         const name = form.name.value;
@@ -215,34 +216,39 @@
         const resultDiv = document.getElementById("resultDiv");
 
         
-        let isValid = true;
-        if (name === "") {
-            alert("Пожалуйста, заполните имя.");
-            isValid = false;
+        if (name === "" || email === "" || comment === "") {
+            resultDiv.innerHTML = '<div class="alert alert-danger">Пожалуйста, заполните все поля.</div>';
+            return;  
         }
 
-        if (email === "") {
-            alert("Пожалуйста, заполните email.");
-            isValid = false;
-        }
+        
+        const formData = new FormData(form);
 
-        if (comment === "") {
-            alert("Пожалуйста, заполните комментарий.");
-            isValid = false;
-        }
-
-        if (isValid) {
-            resultDiv.innerHTML = `
-                <div class="alert alert-success mt-3">
-                    Спасибо, ${name}!<br>
-                </div>
-            `;
-            form.reset();
-
-            form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-        }  else {
-            event.preventDefault();  
-        }
+        
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+            
+        })
+            .then(response => {
+                if (response.ok) {
+                    
+                    return response.text();  
+                } else {
+                    
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+            })
+            .then(data => {
+               
+                resultDiv.innerHTML = `<div class="alert alert-success">Спасибо, ${name}! Ваш комментарий отправлен. ${data}</div>`;
+                form.reset();
+            })
+            .catch(error => {
+                
+                console.error("Form submission error:", error);
+                resultDiv.innerHTML = `<div class="alert alert-danger">Произошла ошибка при отправке комментария. Пожалуйста, попробуйте позже.  Подробности: ${error}</div>`;
+            });
     });
 </script>
 
