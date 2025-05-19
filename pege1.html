@@ -207,33 +207,51 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
     <script>
-         document.getElementById("commentForm").addEventListener("submit", function(event) {
-            event.preventDefault(); 
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var comment = document.getElementById("comment").value;
+            const form = this;  // Get the form element
+            const name = form.name.value;
+            const email = form.email.value;
+            const comment = form.comment.value;
+            const resultDiv = document.getElementById("resultDiv");
 
-            
-            if(name === "" || email === "" || comment === "") {
-                alert("Пожалуйста, заполните все поля.");
-                return;
+            // Basic Validation
+            let isValid = true;
+            if (name === "") {
+                form.name.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                form.name.classList.remove('is-invalid');
             }
 
-          if (isNameValid && isEmailValid && isCommentValid) {
+            if (email === "") {
+                form.email.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                form.email.classList.remove('is-invalid');
+            }
+
+            if (comment === "") {
+                form.comment.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                form.comment.classList.remove('is-invalid');
+            }
+
+
+            if (isValid) {
                 resultDiv.innerHTML = `
                     <div class="alert alert-success mt-3">
-                        Спасибо, ${form.name.value}!<br>
-                      Ваш комментарий: ${form.comment.value}<br>
+                        Спасибо, ${name}!<br>
+                      Ваш комментарий: ${comment}<br>
                         (Пока не храним ваши данные, но это вопрос времени)
                     </div>
                 `;
                 form.reset();
-                form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
             }
         });
-</script>
+    </script>
 
 </body>
 </html>
