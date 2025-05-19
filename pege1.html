@@ -175,90 +175,78 @@
 </head>
 <body>
 
-    <div class="container mt-5">
-        <h2>Оставьте свой комментарий</h2>
+<div class="container mt-5">
+    <h2>Оставьте свой комментарий</h2>
 
-        <form class="row g-3" id="commentForm">
-            <div class="col-md-6">
-                <label for="name" class="form-label">Имя:</label>
-                <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
-                <div class="invalid-feedback">
-                    Пожалуйста, введите имя.
+    <form class="row g-3" id="commentForm" action="https://example.com/submit-comment" method="POST">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Имя:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Введите ваше имя" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Введите ваш email" required>
+        </div>
+
+        <div class="col-12">
+            <label for="comment" class="form-label">Комментарий:</label>
+            <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Ваш комментарий здесь" required></textarea>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Отправить комментарий</button>
+            <div id="resultDiv" class="mt-3"></div>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script>
+    document.getElementById("commentForm").addEventListener("submit", function(event) {
+        
+
+        const form = this;
+        const name = form.name.value;
+        const email = form.email.value;
+        const comment = form.comment.value;
+        const resultDiv = document.getElementById("resultDiv");
+
+        
+        let isValid = true;
+        if (name === "") {
+            alert("Пожалуйста, заполните имя.");
+            isValid = false;
+        }
+
+        if (email === "") {
+            alert("Пожалуйста, заполните email.");
+            isValid = false;
+        }
+
+        if (comment === "") {
+            alert("Пожалуйста, заполните комментарий.");
+            isValid = false;
+        }
+
+        if (isValid) {
+            resultDiv.innerHTML = `
+                <div class="alert alert-success mt-3">
+                    Спасибо, ${name}!<br>
+                    Ваш комментарий: ${comment}<br>
+                    (Пока не храним ваши данные, но это вопрос времени)
                 </div>
-            </div>
+            `;
+            form.reset();
 
-            <div class="col-md-6">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required>
-                <div class="invalid-feedback">
-                    Пожалуйста, введите корректный email.
-                </div>
-            </div>
-
-            <div class="col-12">
-                <label for="comment" class="form-label">Комментарий:</label>
-                <textarea class="form-control" id="comment" rows="4" placeholder="Ваш комментарий здесь" required></textarea>
-                <div class="invalid-feedback">
-                    Пожалуйста, напишите комментарий.
-                </div>
-            </div>
-
-            <div class="col-12">
-                <button class="btn btn-primary" type="submit">Отправить комментарий</button>
-                <div id="resultDiv" class="mt-3"></div>
-            </div>
-        </form>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-    <script>
-        document.getElementById("commentForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const form = this;  // Get the form element
-            const name = form.name.value;
-            const email = form.email.value;
-            const comment = form.comment.value;
-            const resultDiv = document.getElementById("resultDiv");
-
-            // Basic Validation
-            let isValid = true;
-            if (name === "") {
-                form.name.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                form.name.classList.remove('is-invalid');
-            }
-
-            if (email === "") {
-                form.email.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                form.email.classList.remove('is-invalid');
-            }
-
-            if (comment === "") {
-                form.comment.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                form.comment.classList.remove('is-invalid');
-            }
-
-
-            if (isValid) {
-                resultDiv.innerHTML = `
-                    <div class="alert alert-success mt-3">
-                        Спасибо, ${name}!<br>
-                      Ваш комментарий: ${comment}<br>
-                        (Пока не храним ваши данные, но это вопрос времени)
-                    </div>
-                `;
-                form.reset();
-            }
-        });
-    </script>
+            form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+        }  else {
+            event.preventDefault();  
+        }
+    });
+</script>
 
 </body>
 </html>
