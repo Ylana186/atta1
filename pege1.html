@@ -165,7 +165,6 @@
     </main>
 
 
-
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -207,7 +206,7 @@
         crossorigin="anonymous"></script>
 <script>
     document.getElementById("commentForm").addEventListener("submit", function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         const form = this;
         const name = form.name.value;
@@ -215,37 +214,36 @@
         const comment = form.comment.value;
         const resultDiv = document.getElementById("resultDiv");
 
-        
+
         if (name === "" || email === "" || comment === "") {
             resultDiv.innerHTML = '<div class="alert alert-danger">Пожалуйста, заполните все поля.</div>';
             return;  
         }
 
-        
+       
         const formData = new FormData(form);
 
-        
+      
         fetch(form.action, {
             method: form.method,
             body: formData,
-            
         })
             .then(response => {
                 if (response.ok) {
                     
-                    return response.text();  
+                    return response.text();
                 } else {
-                    
+                  
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
             })
             .then(data => {
                
-                resultDiv.innerHTML = `<div class="alert alert-success">Спасибо, ${name}! Ваш комментарий отправлен. ${data}</div>`;
+                resultDiv.innerHTML = `<div class="alert alert-success">Ваш комментарий отправлен: ${comment}</div>`;
                 form.reset();
             })
             .catch(error => {
-                
+              
                 console.error("Form submission error:", error);
                 resultDiv.innerHTML = `<div class="alert alert-danger">Произошла ошибка при отправке комментария. Пожалуйста, попробуйте позже.  Подробности: ${error}</div>`;
             });
